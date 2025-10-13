@@ -45,6 +45,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     wget
+    davinci-resolve
     wl-clipboard-rs
     git
     curl
