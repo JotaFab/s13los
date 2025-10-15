@@ -11,6 +11,7 @@
     ./bash.nix
     ./wofi.nix
     ./tmux.nix
+    ./ghostty.nix
   ];
 
   ########################################
