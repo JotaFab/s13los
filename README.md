@@ -2,6 +2,8 @@
 
 This repository manages the NixOS system and user configuration for the `s13l` user, featuring a Niri-based Wayland desktop, custom Waybar theming, and a curated set of tools. It uses Nix flakes and Home Manager for modular, reproducible configuration.
 
+![alt text](image.png)
+
 ## Structure
 
 - **flake.nix**: Entry point; defines system and user config, imports `configuration.nix` and Home Manager modules.
