@@ -374,7 +374,7 @@ window-rule {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-sh-at-startup "waybar -c ~/.config/waybar/config_niri"
+spawn-at-startup "waybar"
 spawn-sh-at-startup "waypaper --random"
 // spawn-at-startup "obs"
 // spawn-at-startup "steam"
