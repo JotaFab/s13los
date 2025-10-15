@@ -10,7 +10,6 @@ This repository manages the NixOS system and user configuration for the `s13l` u
   - `home.nix`: Aggregates user config, imports other modules.
   - `niri.nix`: Niri window manager settings (apps, env, exec-once, theming).
   - `waybar.nix`: Waybar status bar config and theming.
-  - `bash.nix`, `tmux.nix`, `hyprpaper.nix`: Shell, terminal multiplexer, and wallpaper service config.
 
 ## Usage
 

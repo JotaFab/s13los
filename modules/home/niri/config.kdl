@@ -234,6 +234,7 @@ layout {
         // You can also change the shadow color and opacity.
         color "#0007"
     }
+    background-color "transparent"
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     // You can think of them as a kind of outer gaps. They are set in logical pixels.
@@ -631,3 +632,7 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+layer-rule {
+    place-within-backdrop true
+}
+
