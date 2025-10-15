@@ -18,6 +18,13 @@
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
+    hosts = {
+      "192.168.18.33" = [ "raspi.casa.local" ];
+      "10.129.16.223" = [
+        "blog.inlanefreight.local"
+        "blog-dev.inlanefreight.local"
+      ];
+    };
   };
 
   time.timeZone = "America/Lima";
@@ -32,8 +39,8 @@
     isNormalUser = true;
     description = "s13l";
     extraGroups = [
-      "networkmanager"
       "wheel"
+      "networkmanager"
       "wireshark"
       "docker"
     ];
@@ -43,21 +50,19 @@
   };
 
   environment.systemPackages = with pkgs; [
+    ffmpeg
+    nvidia-vaapi-driver
+    nvidia-modprobe
     neovim
     wget
     davinci-resolve
     wl-clipboard-rs
     git
     curl
-    hyprland
-    hypridle
-    hyprlock
-    hyprpaper
-    discord
     wlogout
+    discord
     obs-studio
     spotify
-    waybar
     lsd
     bat
     tmux
@@ -69,6 +74,7 @@
     vscode
     adw-gtk3
     papirus-icon-theme
+    nh
     xfce.thunar
     gnumake
     go
@@ -79,7 +85,7 @@
     bitwarden
     docker
     docker-compose
-    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-wlr
     polkit
     nixfmt-rfc-style
     obsidian
@@ -96,23 +102,36 @@
     ffuf
     sqlmap
     john
-    hydra
+    thc-hydra
+    qbittorrent
+
+    xwayland
+    xwayland-satellite
   ];
 
   hardware = {
     graphics.enable = true;
     nvidia = {
       modesetting.enable = true;
-      open = true;
+      open = false;
     };
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
   programs = {
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
     wireshark.enable = true;
-    hyprland.enable = true;
+
+    niri.enable = true;
     xwayland.enable = true;
-    hyprlock.enable = true;
+    obs-studio.enable = true;
+    obs-studio.plugins = [ pkgs.obs-studio-plugins.wlrobs ];
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -120,15 +139,15 @@
     };
     gamemode.enable = true;
   };
-
+  xdg.portal.wlr.enable = true;
   fonts = {
     fontconfig.enable = true;
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
     ];
   };
-
   services = {
+    qbittorrent.enable = true;
     displayManager.enable = true;
     displayManager.ly.enable = true;
     # services.openssh.enable = true;
@@ -137,10 +156,11 @@
   security.polkit.enable = true;
   virtualisation.docker.enable = true;
 
-  environment.sessionVariables = {
-    GTK_THEME = "adw-gtk3-dark";
-    GTK_APPLICATION_PREFER_DARK_THEME = "1";
-    PREFERRED_COLOR_SCHEME = "dark";
+  environment.variables = {
+    LD_LIBRARY_PATH = "/run/opengl-driver/lib";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    OZONE_PLATFORM = "wayland";
+    GDK_BACKEND = "wayland";
   };
 
   nix.settings.experimental-features = [

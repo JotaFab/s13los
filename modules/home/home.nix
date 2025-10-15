@@ -6,11 +6,11 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ./hyprland.nix
-    ./hyprpaper.nix
-    ./waybar.nix
-    ./tmux.nix
+    ./waybar/waybar.nix
+    ./niri/niri.nix
     ./bash.nix
+    ./wofi.nix
+    ./tmux.nix
   ];
 
   ########################################
@@ -23,12 +23,30 @@
     tmux
     starship
     swaynotificationcenter
+    waybar-mpris
+    playerctl
+    waypaper
+    waybar
+    swaylock
+    swww
   ];
 
+  gtk = {
+    enable = true;
+    theme.name = "Adwaita-dark";
+
+    colorScheme = "dark";
+  };
+  qt = {
+    style.name = "adwaita-dark";
+  };
+  
   ########################################
   # 🧬 Git config
   ########################################
-  programs.git = {
+  programs= {
+    
+    git = {
     enable = true;
     userName = "jotafab";
     userEmail = "fabrizioore512@gmail.com";
@@ -38,11 +56,13 @@
       color.ui = "auto";
     };
   };
+  };
 
   ########################################
   # 🖥️ Shell config (optional)
   ########################################
   programs.bash.enable = true;
+  services.swww.enable = true;
 
   services.swaync.enable = true;
 
