@@ -41,22 +41,29 @@
   qt = {
     style.name = "adwaita-dark";
   };
-  
+  home.pointerCursor = {
+    enable = true;
+    gtk.enable = true;
+    package = pkgs.catppuccin-cursors.mochaSapphire;
+      name = "catppuccin-mocha-sapphire-cursors";
+    size = 12;
+  };
+
   ########################################
   # 🧬 Git config
   ########################################
-  programs= {
-    
+  programs = {
+
     git = {
-    enable = true;
-    userName = "jotafab";
-    userEmail = "fabrizioore512@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = true;
-      color.ui = "auto";
+      enable = true;
+      userName = "jotafab";
+      userEmail = "fabrizioore512@gmail.com";
+      extraConfig = {
+        init.defaultBranch = "main";
+        pull.rebase = true;
+        color.ui = "auto";
+      };
     };
-  };
   };
 
   ########################################
