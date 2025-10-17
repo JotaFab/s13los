@@ -78,10 +78,12 @@
     xfce.thunar
     gnumake
     go
+    gcc
     ly
     fastfetch
     btop
     steam
+    pavucontrol
     bitwarden
     docker
     docker-compose
@@ -147,7 +149,6 @@
     ];
   };
   services = {
-    qbittorrent.enable = true;
     displayManager.enable = true;
     displayManager.ly.enable = true;
     # services.openssh.enable = true;

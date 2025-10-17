@@ -7,15 +7,8 @@
 
 /* === Waybar Window === */
 window#waybar {
-    background-color: rgba(26, 27, 38, 0);
+    background: rgba(26, 27, 38, 0);
     color: #E6B673;
-}
-
-/* === Workspaces === */
-#workspaces {
-    background: #0F1419;
-    border-radius: 15px;
-    padding: 0px 8px;
 }
 
 #workspaces button {
@@ -31,10 +24,11 @@ window#waybar {
 #workspaces button.active {
     background: linear-gradient(45deg, #131721, #131721);
     border: 1px solid transparent;
-    color: #E6B673;
+    color: #E6E1CF;
 }
 
 /* === Module Defaults === */
+#workspaces,
 #window,
 #memory,
 #clock,
@@ -51,8 +45,9 @@ window#waybar {
 #group-tray-expander,
 #custom-expand-icon,
 #mpris {
-    border-radius: 15px;
-    padding: 0px 10px;
+    border-radius: 6px;
+    margin: 0px 1px;
+    padding: 0px 6px;
     background: #0F1419;
 }
 
@@ -68,20 +63,9 @@ window#waybar {
 #custom-startmenu { color: #D2A6FF; }
 #custom-expand-icon { color: #59C2FF; }
 #mpris { color: #FF8F40; }
-
-/* === Special Modules === */
-#idle_inhibitor,
-#battery {
-    border-radius: 15px 50px 15px 50px;
-    margin: 2px;
-    padding: 2px 20px;
-    background: #0F1419;
-}
-
 #idle_inhibitor { color: #FF8F40; }
 #battery { color: #F07178; }
 #custom-exit { color: #D2A6FF; }
-
 
 /* === Tray === */
 .tray-group-item {
