@@ -20,8 +20,6 @@
   home.packages = with pkgs; [
     fastfetch
     btop
-    neovim
-    tmux
     starship
     swaynotificationcenter
     waybar-mpris
@@ -45,7 +43,7 @@
     enable = true;
     gtk.enable = true;
     package = pkgs.catppuccin-cursors.mochaSapphire;
-      name = "catppuccin-mocha-sapphire-cursors";
+    name = "catppuccin-mocha-sapphire-cursors";
     size = 12;
   };
 
@@ -53,7 +51,16 @@
   # 🧬 Git config
   ########################################
   programs = {
+    bash.enable = true;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
 
+    obs-studio.enable = true;
+    obs-studio.plugins = [ pkgs.obs-studio-plugins.wlrobs ];
     git = {
       enable = true;
       userName = "jotafab";
@@ -66,12 +73,7 @@
     };
   };
 
-  ########################################
-  # 🖥️ Shell config (optional)
-  ########################################
-  programs.bash.enable = true;
   services.swww.enable = true;
-
   services.swaync.enable = true;
 
 }

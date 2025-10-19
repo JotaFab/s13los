@@ -372,6 +372,7 @@ window-rule {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+spawn-at-startup "bitwarden"
 spawn-sh-at-startup "waypaper --random"
 // spawn-at-startup "obs"
 // spawn-at-startup "steam"

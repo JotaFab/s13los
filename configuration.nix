@@ -20,7 +20,7 @@
     networkmanager.enable = true;
     hosts = {
       "192.168.18.33" = [ "raspi.casa.local" ];
-      "10.129.16.223" = [
+      "10.129.182.29" = [
         "blog.inlanefreight.local"
         "blog-dev.inlanefreight.local"
       ];
@@ -48,6 +48,7 @@
       chromium
     ];
   };
+  
 
   environment.systemPackages = with pkgs; [
     ffmpeg
@@ -84,7 +85,7 @@
     btop
     steam
     pavucontrol
-    bitwarden
+    bitwarden-desktop
     docker
     docker-compose
     xdg-desktop-portal-wlr
@@ -97,6 +98,7 @@
     burpsuite
     caido
     wireshark
+    wordlists
     rockyou
     seclists
     metasploit
@@ -120,27 +122,6 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  programs = {
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-    };
-    wireshark.enable = true;
-
-    niri.enable = true;
-    xwayland.enable = true;
-    obs-studio.enable = true;
-    obs-studio.plugins = [ pkgs.obs-studio-plugins.wlrobs ];
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
-    gamemode.enable = true;
-  };
   xdg.portal.wlr.enable = true;
   fonts = {
     fontconfig.enable = true;
@@ -153,7 +134,18 @@
     displayManager.ly.enable = true;
     # services.openssh.enable = true;
   };
+  programs = {
+    niri.enable = true;
+    xwayland.enable = true;
+    wireshark.enable = true;
 
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    gamemode.enable = true;
+  };
   security.polkit.enable = true;
   virtualisation.docker.enable = true;
 

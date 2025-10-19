@@ -16,13 +16,10 @@ window#waybar {
     padding: 0px 3px;
     border: 0;
     border-radius: 10px;
-    background: #0F1419;
-    color: #E6E1CF;
 }
 
 #workspaces button:hover,
 #workspaces button.active {
-    background: linear-gradient(45deg, #131721, #131721);
     border: 1px solid transparent;
     color: #E6E1CF;
 }
@@ -48,7 +45,7 @@ window#waybar {
     border-radius: 6px;
     margin: 0px 1px;
     padding: 0px 6px;
-    background: #0F1419;
+    background: #000000;
 }
 
 /* === Individual Modules === */
