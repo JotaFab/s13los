@@ -86,6 +86,7 @@
     adw-gtk3
     papirus-icon-theme
     nh
+    nautilus
     xfce.thunar
     gnumake
     go
