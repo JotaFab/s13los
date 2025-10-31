@@ -87,6 +87,9 @@ output "HDMI-A-1" {
     // automatically.
     position x=1280 y=0
 }
+overview {
+    zoom 0.40
+}
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -138,7 +141,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+        off
 
         // How many logical pixels the ring extends out from the windows.
         width 2
@@ -281,6 +284,10 @@ animations {
     // slowdown 3.0
 }
 
+window-rule {
+  opacity 0.85
+}
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
@@ -395,6 +402,7 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+O { toggle-window-rule-opacity; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal " { spawn "ghostty"; }
