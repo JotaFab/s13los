@@ -15,9 +15,9 @@
 
     # Your environment variables
     initExtra = ''
+      export PATH="$HOME/.local/bin:$PATH"
       export GOPATH=$HOME/go
       export PATH="$PATH:$HOME/go/bin"
-      export PATH="$PATH:$HOME/.local/bin"
       eval "$(starship init bash)"
     '';
 

@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+{ config, pkgs, globals, ... }:
+
 
 {
   imports = [
@@ -10,13 +11,23 @@
 
   # Bootloader
   boot.loader = {
-    systemd-boot.enable = true;
+    systemd-boot.enable = false;
+    grub.enable = true;
+    grub.device = "nodev";
+    grub.theme = pkgs.fetchFromGitHub {
+      owner = "shvchk";
+      repo = "fallout-grub-theme";
+      rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
+      sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
+    };
+    grub.efiSupport = true;
+    grub.useOSProber = true;
     efi.canTouchEfiVariables = true;
   };
   boot.kernelPackages = pkgs.linuxPackages;
 
   networking = {
-    hostName = "nixos";
+    hostName = globals.HostName;
     networkmanager.enable = true;
     hosts = {
       "192.168.18.33" = [ "raspi.casa.local" ];
@@ -35,9 +46,9 @@
     variant = "";
   };
 
-  users.users.s13l = {
+  users.users.${globals.UserName} = {
     isNormalUser = true;
-    description = "s13l";
+    description = "Main User";
     extraGroups = [
       "wheel"
       "networkmanager"
@@ -48,7 +59,6 @@
       chromium
     ];
   };
-  
 
   environment.systemPackages = with pkgs; [
     ffmpeg
@@ -109,6 +119,7 @@
     thc-hydra
     qbittorrent
 
+    grub2
     xwayland
     xwayland-satellite
   ];
@@ -135,6 +146,7 @@
     # services.openssh.enable = true;
   };
   programs = {
+    nix-ld.enable = true;
     niri.enable = true;
     xwayland.enable = true;
     wireshark.enable = true;

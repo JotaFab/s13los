@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, globals, ... }:
 
 {
-  home.username = "s13l";
-  home.homeDirectory = "/home/s13l";
   home.stateVersion = "25.05";
 
   imports = [
@@ -12,6 +10,7 @@
     ./wofi.nix
     ./tmux.nix
     ./ghostty.nix
+    ./git.nix
   ];
 
   ########################################
@@ -61,16 +60,7 @@
 
     obs-studio.enable = true;
     obs-studio.plugins = [ pkgs.obs-studio-plugins.wlrobs ];
-    git = {
-      enable = true;
-      userName = "jotafab";
-      userEmail = "fabrizioore512@gmail.com";
-      extraConfig = {
-        init.defaultBranch = "main";
-        pull.rebase = true;
-        color.ui = "auto";
-      };
-    };
+
   };
 
   services.swww.enable = true;
