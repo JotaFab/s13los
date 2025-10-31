@@ -4,6 +4,7 @@
     enable = true;
     prefix = "C-Space";
     keyMode = "vi";
+    newSession = true;
     plugins = [
     ];
     extraConfig = ''
