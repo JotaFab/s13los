@@ -1,4 +1,9 @@
-{ config, pkgs, globals, ... }:
+{
+  config,
+  pkgs,
+  globals,
+  ...
+}:
 
 {
   home.stateVersion = "25.05";
@@ -13,22 +18,11 @@
     ./git.nix
   ];
 
-  ########################################
-  # 🧰 User tools and base config
-  ########################################
-  home.packages = with pkgs; [
-    fastfetch
-    btop
-    starship
-    swaynotificationcenter
-    waybar-mpris
-    playerctl
-    waypaper
-    waybar
-    swaylock
-    swww
-  ];
-
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
   gtk = {
     enable = true;
     theme.name = "Adwaita-dark";
@@ -36,6 +30,7 @@
     colorScheme = "dark";
   };
   qt = {
+    enable = true;
     style.name = "adwaita-dark";
   };
   home.pointerCursor = {

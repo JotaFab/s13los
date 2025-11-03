@@ -1,5 +1,9 @@
-{ config, pkgs, globals, ... }:
-
+{
+  config,
+  pkgs,
+  globals,
+  ...
+}:
 
 {
   imports = [
@@ -61,9 +65,19 @@
   };
 
   environment.systemPackages = with pkgs; [
+    fastfetch
+    btop
+    starship
+    waybar-mpris
+    playerctl
+    waypaper
+    waybar
+    swaylock
+    swww
     ffmpeg
     nvidia-vaapi-driver
     nvidia-modprobe
+    swaynotificationcenter
     neovim
     wget
     davinci-resolve
@@ -77,8 +91,8 @@
     lsd
     bat
     tmux
-    lazygit
     fzf
+    lazygit
     lazydocker
     wofi
     ghostty
@@ -87,7 +101,6 @@
     papirus-icon-theme
     nh
     nautilus
-    xfce.thunar
     gnumake
     go
     gcc
@@ -144,7 +157,7 @@
   services = {
     displayManager.enable = true;
     displayManager.ly.enable = true;
-    # services.openssh.enable = true;
+-    # services.openssh.enable = true;
   };
   programs = {
     nix-ld.enable = true;

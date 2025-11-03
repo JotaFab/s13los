@@ -8,6 +8,11 @@
     plugins = [
     ];
     extraConfig = ''
+
+      bind c new-window -c "#{pane_current_path}"
+      bind '"' split-window -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+
       set -g @plugin 'tmux-plugins/tpm'
       set -g @plugin 'tarquibrian/vanzi'
       set -g @theme_variant "vanzi"
