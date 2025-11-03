@@ -14,6 +14,7 @@
     ./bash.nix
     ./wofi.nix
     ./tmux.nix
+    ./nvim.nix
     ./ghostty.nix
     ./git.nix
   ];
@@ -46,13 +47,7 @@
   ########################################
   programs = {
     bash.enable = true;
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-    };
-
+    zoxide.enable = true;
     obs-studio.enable = true;
     obs-studio.plugins = [ pkgs.obs-studio-plugins.wlrobs ];
 

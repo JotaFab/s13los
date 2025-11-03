@@ -65,6 +65,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+		ripgrep
+		fzf
     fastfetch
     btop
     starship
@@ -83,6 +85,8 @@
     davinci-resolve
     wl-clipboard-rs
     git
+    glib
+    steam-run
     curl
     wlogout
     discord
@@ -103,6 +107,7 @@
     nautilus
     gnumake
     go
+    gopls
     gcc
     ly
     fastfetch
