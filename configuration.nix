@@ -157,7 +157,7 @@
   services = {
     displayManager.enable = true;
     displayManager.ly.enable = true;
--    # services.openssh.enable = true;
+    # services.openssh.enable = true;
   };
   programs = {
     nix-ld.enable = true;
