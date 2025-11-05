@@ -108,6 +108,7 @@
     gnumake
     go
     gopls
+    musl
     gcc
     ly
     fastfetch
