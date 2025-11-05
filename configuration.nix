@@ -65,6 +65,9 @@
   };
 
   environment.systemPackages = with pkgs; [
+    gimp
+    godot
+    ffmpeg
 		ripgrep
 		fzf
     fastfetch
@@ -76,7 +79,6 @@
     waybar
     swaylock
     swww
-    ffmpeg
     nvidia-vaapi-driver
     nvidia-modprobe
     swaynotificationcenter

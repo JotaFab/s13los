@@ -46,6 +46,7 @@
   # 🧬 Git config
   ########################################
   programs = {
+    go.enable = true;
     bash.enable = true;
     zoxide.enable = true;
     obs-studio.enable = true;
