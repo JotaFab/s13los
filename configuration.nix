@@ -69,6 +69,7 @@
     godot
     krita
     ffmpeg
+    jq
 		ripgrep
 		fzf
     fastfetch
