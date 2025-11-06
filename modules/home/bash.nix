@@ -11,6 +11,7 @@
       ll = "ls -l";
       la = "ls -lAtr";
       cat = "bat";
+      ta = "tmux a";
     };
 
     # Your environment variables

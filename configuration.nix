@@ -67,6 +67,7 @@
   environment.systemPackages = with pkgs; [
     gimp
     godot
+    krita
     ffmpeg
 		ripgrep
 		fzf

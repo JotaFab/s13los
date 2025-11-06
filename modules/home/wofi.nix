@@ -7,7 +7,9 @@
       content_halign = "fill";
       insensitive = true;
       allow_images = true;
-      image_size = 25;
+      image_size = 30;
+      allow_markup = true;
+      width = 350;
       term = "ghostty";
     };
     style = ''
