@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
-# Get list of windows (title + app-id)
-windows=$(niri msg -j windows | jq -r '.[] | "\(.id) | \(.app_id // "unknown") - \(.title // "no title")"')
+# Query windows, sort by app_id, and format for wofi with icons
+win=$(niri msg -j windows | jq -r '.[] | "\(.app_id)\t\(.title)\t\(.id)"' \
+    | sort -k1,1 \
+    | awk -F'\t' '{print $1 " - " $2 "\t" $3}' \
+    | wofi  -d --prompt "Switch window:")
 
-[ -z "$windows" ] && exit 0
-
-# Pick one with wofi
-chosen=$(echo "$windows" | wofi --dmenu --prompt "Switch to window:")
-
-# Extract ID
-id=$(echo "$chosen" | cut -d '|' -f1 | xargs)
+# Extract ID (second tab field)
+id=$(echo "$win" | awk -F'\t' '{print $2}')
 
 # Focus window
-[ -n "$id" ] && niri msg action focus-window --id "$id"
-
+if [ -n "$id" ]; then
+    niri msg action focus-window --id "$id"
+fi

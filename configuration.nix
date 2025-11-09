@@ -70,6 +70,7 @@
     krita
     ffmpeg
     jq
+    rofi
 		ripgrep
 		fzf
     fastfetch

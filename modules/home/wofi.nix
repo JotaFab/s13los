@@ -9,8 +9,9 @@
       allow_images = true;
       image_size = 30;
       allow_markup = true;
-      width = 350;
+      width = 400;
       term = "ghostty";
+      dmenu-parse_action=true;
     };
     style = ''
       window {
