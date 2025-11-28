@@ -70,7 +70,6 @@
     krita
     ffmpeg
     jq
-    rofi
 		ripgrep
 		fzf
     fastfetch
@@ -80,7 +79,7 @@
     playerctl
     waypaper
     waybar
-    swaylock
+    swaylock-effects
     swww
     nvidia-vaapi-driver
     nvidia-modprobe
@@ -201,6 +200,6 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
+  system.stateVersion = "25.11";
 
-  system.stateVersion = "25.05";
 }
