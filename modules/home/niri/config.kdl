@@ -255,6 +255,7 @@ spawn-at-startup "obsidian"
 spawn-at-startup "spotify"
 spawn-at-startup "chromium"
 spawn-at-startup "ghostty"
+spawn-sh-at-startup "swayidle -w timeout 600 'swaylock -f' timeout 900 'niri msg output power off' resume 'niri msg output power on' before-sleep 'swaylock -f'"
 
 binds {
     // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
@@ -264,6 +265,7 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Shift+O hotkey-overlay-title="toggle opacity" { toggle-window-rule-opacity; }
+    Mod+Shift+W hotkey-overlay-title="random wallpaper" { spawn-sh "waypaper --random"; }    
 
     Mod+W hotkey-overlay-title="toggle waybar" repeat=false { spawn-sh "pkill -SIGUSR1 waybar || waybar"; }
 

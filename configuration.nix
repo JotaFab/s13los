@@ -31,15 +31,17 @@
   boot.kernelPackages = pkgs.linuxPackages;
 
   networking = {
+    nameservers = [ "1.1.1.1" "9.9.9.9" ];
     hostName = globals.HostName;
     networkmanager.enable = true;
-    hosts = {
-      "192.168.18.33" = [ "raspi.casa.local" ];
-      "10.129.182.29" = [
-        "blog.inlanefreight.local"
-        "blog-dev.inlanefreight.local"
-      ];
-    };
+    hosts = (
+      if builtins.pathExists ./hosts.nix then
+        import ./hosts.nix
+      else
+        {
+
+        }
+    );
   };
 
   time.timeZone = "America/Lima";
@@ -67,11 +69,12 @@
   environment.systemPackages = with pkgs; [
     gimp
     godot
+    anki
     krita
     ffmpeg
     jq
-		ripgrep
-		fzf
+    ripgrep
+    fzf
     fastfetch
     btop
     starship
@@ -80,6 +83,7 @@
     waypaper
     waybar
     swaylock-effects
+    swayidle
     swww
     nvidia-vaapi-driver
     nvidia-modprobe
@@ -162,6 +166,7 @@
     fontconfig.enable = true;
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
+      noto-fonts-cjk-sans
     ];
   };
   services = {
