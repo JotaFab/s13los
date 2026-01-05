@@ -2,6 +2,7 @@
   config,
   pkgs,
   globals,
+  inputs,
   ...
 }:
 
@@ -9,6 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./modules/pentest.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -72,9 +74,7 @@
 
     ];
   };
-
   environment.systemPackages = with pkgs; [
-    
     ffmpeg
     jq
     ripgrep
@@ -85,7 +85,8 @@
     waybar-mpris
     playerctl
     waypaper
-    awww
+    mpvpaper
+    swww
     waybar
     swaylock-effects
     swayidle
@@ -134,21 +135,7 @@
     polkit
     nixfmt-rfc-style
     obsidian
-    nmap
     openvpn
-    hashcat
-    burpsuite
-    caido
-    wireshark
-    wordlists
-    rockyou
-    seclists
-    metasploit
-    gobuster
-    ffuf
-    sqlmap
-    john
-    thc-hydra
     qbittorrent
 
     grub2
@@ -177,7 +164,7 @@
     displayManager.enable = true;
     displayManager.ly.enable = true;
     # services.openssh.enable = true;
-  };
+  }; 
   programs = {
     nix-ld.enable = true;
     niri.enable = true;
