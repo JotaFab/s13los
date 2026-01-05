@@ -49,7 +49,7 @@ output "HDMI-A-1" {
     position x=1280 y=0
 }
 overview {
-    zoom 0.45
+    zoom 0.25
 }
 
 layout {
@@ -167,9 +167,6 @@ animations {
     // slowdown 3.0
 }
 
-window-rule {
-  opacity 0.65
-}
 
 window-rule {
     // This regular expression is intentionally made as specific as possible,
@@ -224,6 +221,7 @@ window-rule {
 window-rule {
     match app-id=r#"ghostty"#
     open-maximized true
+    opacity 0.65
     open-on-workspace "term"
 }
 

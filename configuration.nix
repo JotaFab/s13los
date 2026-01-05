@@ -63,14 +63,18 @@
     ];
     packages = with pkgs; [
       chromium
+      google-chrome
+      firefox
+      godot
+      gimp
+      anki
+      krita
+
     ];
   };
 
   environment.systemPackages = with pkgs; [
-    gimp
-    godot
-    anki
-    krita
+    
     ffmpeg
     jq
     ripgrep
@@ -81,10 +85,10 @@
     waybar-mpris
     playerctl
     waypaper
+    awww
     waybar
     swaylock-effects
     swayidle
-    swww
     nvidia-vaapi-driver
     nvidia-modprobe
     swaynotificationcenter
