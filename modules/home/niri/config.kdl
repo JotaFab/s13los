@@ -273,8 +273,7 @@ binds {
     Mod+O hotkey-overlay-title="Open a Obsidian " { spawn "obsidian"; }
     Mod+E hotkey-overlay-title="Open a FileManager " { spawn "nautilus"; }
     Mod+D hotkey-overlay-title="Run an Application" { spawn-sh "wofi --show drun"; }
-    Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock -f -S --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color bb00cc --key-hl-color 880033 --line-color 00000000 --inside-color 00000088 --separator-color 00000000 --fade-in 0.2"; }
-
+    Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock "; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
