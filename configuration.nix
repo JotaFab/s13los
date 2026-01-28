@@ -75,12 +75,15 @@
     ];
   };
   environment.systemPackages = with pkgs; [
+    ani-cli
     ffmpeg
     jq
     ripgrep
     fzf
     fastfetch
     btop
+    npm
+	  caido
     starship
     waybar-mpris
     playerctl
@@ -133,7 +136,7 @@
     docker-compose
     xdg-desktop-portal-wlr
     polkit
-    nixfmt-rfc-style
+    nixfmt
     obsidian
     openvpn
     qbittorrent
