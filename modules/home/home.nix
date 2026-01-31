@@ -9,14 +9,16 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ./waybar/waybar.nix
-    ./niri/niri.nix
-    ./bash.nix
-    ./wofi.nix
-    ./tmux.nix
-    ./nvim.nix
-    ./ghostty.nix
-    ./git.nix
+    ./programs/waybar/waybar.nix
+    ./programs/niri/niri.nix
+    ./programs/bash.nix
+    ./programs/wofi.nix
+    ./programs/tmux.nix
+    ./programs/nvim.nix
+    ./programs/ghostty.nix
+    ./programs/git.nix
+    ./programs/moltbot/moltbot.nix
+
   ];
 
   dconf.settings = {

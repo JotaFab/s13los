@@ -82,7 +82,7 @@
     fzf
     fastfetch
     btop
-    npm
+    ollama-vulkan
 	  caido
     starship
     waybar-mpris
