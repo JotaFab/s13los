@@ -17,7 +17,6 @@
     ./programs/nvim.nix
     ./programs/ghostty.nix
     ./programs/git.nix
-    ./programs/moltbot/moltbot.nix
 
   ];
 

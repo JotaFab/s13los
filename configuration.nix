@@ -59,6 +59,7 @@
     description = "Main User";
     extraGroups = [
       "wheel"
+      "1000"
       "networkmanager"
       "wireshark"
       "docker"
@@ -83,7 +84,8 @@
     fastfetch
     btop
     ollama-vulkan
-	  caido
+    caido
+	python3
     starship
     waybar-mpris
     playerctl
@@ -164,6 +166,7 @@
     ];
   };
   services = {
+    ollama.enable = true;
     displayManager.enable = true;
     displayManager.ly.enable = true;
     # services.openssh.enable = true;

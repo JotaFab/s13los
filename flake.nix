@@ -2,18 +2,13 @@
   description = "S13L custom NixOS + Home Manager config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      ...
-    }:
+  outputs = { self, nixpkgs, home-manager, nix-openclaw }:
     let
       system = "x86_64-linux";
       globals = {
