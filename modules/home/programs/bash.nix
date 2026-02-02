@@ -16,7 +16,7 @@
       # NixOS maintenance
       update = "nh os switch ~/s13los";
       clean = "nh clean all --keep 3";
-      fup = "nix flake update --flake ~/s13los";
+      fup = "nix flake update";
     };
 
     # Your environment variables

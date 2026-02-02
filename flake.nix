@@ -8,7 +8,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-openclaw }:
+  outputs = { self, nixpkgs, home-manager }:
     let
       system = "x86_64-linux";
       globals = {
