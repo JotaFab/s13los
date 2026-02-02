@@ -33,9 +33,13 @@
   boot.kernelPackages = pkgs.linuxPackages;
 
   networking = {
-    nameservers = [ "1.1.1.1" "9.9.9.9" ];
+    nameservers = [ "2001:4860:4860::8888" "2001:4860:4860::8844" "8.8.8.8" "8.8.4.4" "2606:4700:4700::1111" "2606:4700:4700::1001" "1.1.1.1" "1.0.0.1" ];
     hostName = globals.HostName;
     networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 11434 ];
+    };
     hosts = (
       if builtins.pathExists ./hosts.nix then
         import ./hosts.nix
@@ -166,7 +170,7 @@
     ];
   };
   services = {
-    ollama.enable = true;
+    openssh.enable = true;
     displayManager.enable = true;
     displayManager.ly.enable = true;
     # services.openssh.enable = true;
