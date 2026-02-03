@@ -63,7 +63,6 @@
     description = "Main User";
     extraGroups = [
       "wheel"
-      "1000"
       "networkmanager"
       "wireshark"
       "docker"
@@ -87,9 +86,10 @@
     fzf
     fastfetch
     btop
+    sshfs
     ollama-vulkan
     caido
-	python3
+	  python3
     starship
     waybar-mpris
     playerctl
