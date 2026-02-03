@@ -14,7 +14,7 @@
       ta = "tmux a";
       
       # NixOS maintenance
-      update = "nh os switch ~/s13los";
+      update = "sudo nixos-rebuild switch --flake .#s13los --show-trace";
       clean = "nh clean all --keep 3";
       fup = "nix flake update";
     };
