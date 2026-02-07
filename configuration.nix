@@ -16,6 +16,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader
+  boot.kernelModules = [ "kvm-amd" ];
   boot.loader = {
     systemd-boot.enable = false;
     grub.enable = true;
@@ -39,6 +40,7 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [ 11434 ];
+	  trustedInterfaces = [ "virbr0" ];
     };
     hosts = (
       if builtins.pathExists ./hosts.nix then
@@ -64,6 +66,8 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+	  "libvirtd"
+    "kvm"
       "wireshark"
       "docker"
     ];
@@ -79,9 +83,12 @@
     ];
   };
   environment.systemPackages = with pkgs; [
+  kvmtool
     ani-cli
     ffmpeg
     jq
+    qemu
+	  dnsmasq
     ripgrep
     fzf
     fastfetch
@@ -89,7 +96,7 @@
     sshfs
     ollama-vulkan
     caido
-	  python3
+    python3
     starship
     waybar-mpris
     playerctl
@@ -175,7 +182,12 @@
     displayManager.ly.enable = true;
     # services.openssh.enable = true;
   }; 
+  virtualisation.libvirtd = {
+  enable = true;
+  qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+};
   programs = {
+virt-manager.enable = true;
     nix-ld.enable = true;
     niri.enable = true;
     xwayland.enable = true;

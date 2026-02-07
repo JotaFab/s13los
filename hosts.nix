@@ -7,7 +7,7 @@
     "blog-dev.inlanefreight.local"
     "app.inlanefreight.local"
   ];
-  "10.129.24.140" = [
+  "10.129.19.80" = [
     "facts.htb"
   ];
 }
