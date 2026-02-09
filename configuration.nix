@@ -11,12 +11,12 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/pentest.nix
+    ./modules/virt.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
 
   # Bootloader
-  boot.kernelModules = [ "kvm-amd" ];
   boot.loader = {
     systemd-boot.enable = false;
     grub.enable = true;
@@ -40,7 +40,6 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [ 11434 ];
-	  trustedInterfaces = [ "virbr0" ];
     };
     hosts = (
       if builtins.pathExists ./hosts.nix then
@@ -66,8 +65,6 @@
     extraGroups = [
       "wheel"
       "networkmanager"
-	  "libvirtd"
-    "kvm"
       "wireshark"
       "docker"
     ];
@@ -83,12 +80,10 @@
     ];
   };
   environment.systemPackages = with pkgs; [
-  kvmtool
     ani-cli
     ffmpeg
     jq
     qemu
-	  dnsmasq
     ripgrep
     fzf
     fastfetch
@@ -180,14 +175,9 @@
     openssh.enable = true;
     displayManager.enable = true;
     displayManager.ly.enable = true;
-    # services.openssh.enable = true;
-  }; 
-  virtualisation.libvirtd = {
-  enable = true;
-  qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
-};
+  };
+
   programs = {
-virt-manager.enable = true;
     nix-ld.enable = true;
     niri.enable = true;
     xwayland.enable = true;
@@ -200,8 +190,19 @@ virt-manager.enable = true;
     };
     gamemode.enable = true;
   };
+
   security.polkit.enable = true;
-  virtualisation.docker.enable = true;
+
+  fileSystems."/home/s13l/Documents/git" = {
+  device = "jotafab@raspi.casa.local:/media/jotafab/f7d8810b-c5aa-489e-9c2f-5bc3168f571d/jotadir/s13l/git-repos";
+  fsType = "sshfs";
+  options = [
+    "nodev"
+    "noatime"
+    "allow_other"
+    "IdentityFile=/home/s13l/.ssh/id_ed25519_raspi"
+  ];
+};
 
   environment.variables = {
     LD_LIBRARY_PATH = "/run/opengl-driver/lib";
@@ -209,6 +210,7 @@ virt-manager.enable = true;
     OZONE_PLATFORM = "wayland";
     GDK_BACKEND = "wayland";
   };
+  
 
   nix.settings.experimental-features = [
     "nix-command"

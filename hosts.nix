@@ -10,4 +10,8 @@
   "10.129.19.80" = [
     "facts.htb"
   ];
+  "10.129.6.7" = [
+  "pterodactyl.htb"
+  "play.pterodactyl.htb"
+  ];
 }
