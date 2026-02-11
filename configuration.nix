@@ -111,6 +111,7 @@
     git
     glib
     steam-run
+    libxfs
     curl
     wlogout
     discord
