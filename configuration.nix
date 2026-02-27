@@ -31,6 +31,7 @@
     grub.useOSProber = true;
     efi.canTouchEfiVariables = true;
   };
+  boot.supportedFilesystems = [ "ntfs" "exfat" ];
   boot.kernelPackages = pkgs.linuxPackages;
 
   networking = {
@@ -76,7 +77,7 @@
       gimp
       anki
       krita
-
+      libreoffice
     ];
   };
   environment.systemPackages = with pkgs; [
@@ -163,7 +164,8 @@
     };
   };
   services.xserver.videoDrivers = [ "nvidia" ];
-
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
   xdg.portal.wlr.enable = true;
   fonts = {
     fontconfig.enable = true;
