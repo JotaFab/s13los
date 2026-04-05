@@ -15,8 +15,8 @@
         # this are the variables that you wanna change xd
         UserName = "s13l"; 
         HostName = "s13los";
-        GitName = "";
-        GitEmail = "";
+        GitName = "JotaFab";
+        GitEmail = "fabrizioore@gmail.com";
         Bwserver = "";
       };
 

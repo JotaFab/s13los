@@ -76,10 +76,13 @@
       gimp
       anki
       krita
+      wireguard-tools
+	  quickemu
 
     ];
   };
   environment.systemPackages = with pkgs; [
+    libreoffice
     ani-cli
     ffmpeg
     jq
@@ -194,16 +197,16 @@
 
   security.polkit.enable = true;
 
-  fileSystems."/home/s13l/Documents/git" = {
-  device = "jotafab@raspi.casa.local:/media/jotafab/f7d8810b-c5aa-489e-9c2f-5bc3168f571d/jotadir/s13l/git-repos";
-  fsType = "sshfs";
-  options = [
-    "nodev"
-    "noatime"
-    "allow_other"
-    "IdentityFile=/home/s13l/.ssh/id_ed25519_raspi"
-  ];
-};
+#  fileSystems."/home/s13l/Documents/git" = {
+#  device = "jotafab@raspi.casa.local:/media/jotafab/f7d8810b-c5aa-489e-9c2f-5bc3168f571d/jotadir/s13l/git-repos";
+#  fsType = "sshfs";
+#  options = [
+#    "nodev"
+#    "noatime"
+#    "allow_other"
+#    "IdentityFile=/home/s13l/.ssh/id_ed25519_raspi"
+#  ];
+#};
 
   environment.variables = {
     LD_LIBRARY_PATH = "/run/opengl-driver/lib";
