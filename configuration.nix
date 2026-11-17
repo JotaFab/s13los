@@ -33,6 +33,11 @@
   };
   boot.kernelPackages = pkgs.linuxPackages;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   networking = {
     nameservers = [ "2001:4860:4860::8888" "2001:4860:4860::8844" "8.8.8.8" "8.8.4.4" "2606:4700:4700::1111" "2606:4700:4700::1001" "1.1.1.1" "1.0.0.1" ];
     hostName = globals.HostName;
@@ -79,9 +84,16 @@
       wireguard-tools
 	  quickemu
 
+
     ];
   };
   environment.systemPackages = with pkgs; [
+  nodejs
+	  anydesk
+	  freerdp
+	  antigravity
+	  claude-code
+    protonup-rs
     libreoffice
     ani-cli
     ffmpeg
@@ -98,9 +110,6 @@
     starship
     waybar-mpris
     playerctl
-    waypaper
-    mpvpaper
-    swww
     waybar
     swaylock-effects
     swayidle
@@ -109,7 +118,6 @@
     swaynotificationcenter
     neovim
     wget
-    davinci-resolve
     wl-clipboard-rs
     git
     glib
@@ -143,7 +151,6 @@
     btop
     steam
     pavucontrol
-    bitwarden-desktop
     docker
     docker-compose
     xdg-desktop-portal-wlr

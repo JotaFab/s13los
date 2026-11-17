@@ -9,10 +9,11 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ./programs/waybar/waybar.nix
+    # ./programs/waybar/waybar.nix
+    ./programs/quickshell/quickshell.nix
     ./programs/niri/niri.nix
     ./programs/bash.nix
-    ./programs/wofi.nix
+    # ./programs/wofi.nix
     ./programs/tmux.nix
     ./programs/nvim.nix
     ./programs/ghostty.nix
@@ -55,7 +56,6 @@
 
   };
 
-  services.swww.enable = true;
   services.swaync.enable = true;
 
 }

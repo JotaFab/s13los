@@ -250,9 +250,8 @@ window-rule {
 
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+spawn-at-startup "noctalia-shell"
 spawn-at-startup "bitwarden"
-spawn-sh-at-startup "waypaper --random"
 spawn-at-startup "obs"
 spawn-at-startup "steam"
 spawn-at-startup "obsidian"
@@ -269,16 +268,15 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Shift+O hotkey-overlay-title="toggle opacity" { toggle-window-rule-opacity; }
-    Mod+Shift+W hotkey-overlay-title="random wallpaper" { spawn-sh "waypaper --random"; }    
 
-    Mod+W hotkey-overlay-title="toggle waybar" repeat=false { spawn-sh "pkill -SIGUSR1 waybar || waybar"; }
+    Mod+W hotkey-overlay-title="toggle noctalia" repeat=false { spawn-sh "n=noctalia; pkill -f $n-shell; sleep 0.5; exec $n-shell"; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal " { spawn "ghostty"; }
     Mod+B hotkey-overlay-title="Open a Browser " { spawn "chromium"; }
     Mod+O hotkey-overlay-title="Open a Obsidian " { spawn "obsidian"; }
     Mod+E hotkey-overlay-title="Open a FileManager " { spawn "nautilus"; }
-    Mod+D hotkey-overlay-title="Run an Application" { spawn-sh "wofi --show drun"; }
+    Mod+D hotkey-overlay-title="Run an Application" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Super+Shift+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock "; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
